@@ -19,6 +19,10 @@
 		F35E378816CC470500772AF9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35E378616CC470500772AF9 /* MainStoryboard_iPhone.storyboard */; };
 		F35E378B16CC470500772AF9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35E378916CC470500772AF9 /* MainStoryboard_iPad.storyboard */; };
 		F35E378E16CC470500772AF9 /* CardMatchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E378D16CC470500772AF9 /* CardMatchingViewController.m */; };
+		F35E379716CC4C1900772AF9 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E379616CC4C1900772AF9 /* Card.m */; };
+		F35E379A16CC4C3D00772AF9 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E379916CC4C3D00772AF9 /* Deck.m */; };
+		F35E379D16CC4F1B00772AF9 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E379C16CC4F1B00772AF9 /* PlayingCard.m */; };
+		F35E37A116CC54E200772AF9 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = F35E37A016CC54E200772AF9 /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,14 @@
 		F35E378A16CC470500772AF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F35E378C16CC470500772AF9 /* CardMatchingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchingViewController.h; sourceTree = "<group>"; };
 		F35E378D16CC470500772AF9 /* CardMatchingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardMatchingViewController.m; sourceTree = "<group>"; };
+		F35E379516CC4C1900772AF9 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
+		F35E379616CC4C1900772AF9 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
+		F35E379816CC4C3D00772AF9 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
+		F35E379916CC4C3D00772AF9 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		F35E379B16CC4F1B00772AF9 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		F35E379C16CC4F1B00772AF9 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		F35E379F16CC54E200772AF9 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		F35E37A016CC54E200772AF9 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,7 @@
 		F35E377416CC470500772AF9 /* CardMatchingGame */ = {
 			isa = PBXGroup;
 			children = (
+				F35E379416CC4BF700772AF9 /* Model */,
 				F35E377D16CC470500772AF9 /* CardMatchingAppDelegate.h */,
 				F35E377E16CC470500772AF9 /* CardMatchingAppDelegate.m */,
 				F35E378616CC470500772AF9 /* MainStoryboard_iPhone.storyboard */,
@@ -108,6 +121,29 @@
 				F35E378416CC470500772AF9 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F35E379416CC4BF700772AF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F35E379E16CC4F1F00772AF9 /* Base */,
+				F35E379B16CC4F1B00772AF9 /* PlayingCard.h */,
+				F35E379C16CC4F1B00772AF9 /* PlayingCard.m */,
+				F35E379F16CC54E200772AF9 /* PlayingCardDeck.h */,
+				F35E37A016CC54E200772AF9 /* PlayingCardDeck.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F35E379E16CC4F1F00772AF9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F35E379516CC4C1900772AF9 /* Card.h */,
+				F35E379616CC4C1900772AF9 /* Card.m */,
+				F35E379816CC4C3D00772AF9 /* Deck.h */,
+				F35E379916CC4C3D00772AF9 /* Deck.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +217,10 @@
 				F35E377B16CC470500772AF9 /* main.m in Sources */,
 				F35E377F16CC470500772AF9 /* CardMatchingAppDelegate.m in Sources */,
 				F35E378E16CC470500772AF9 /* CardMatchingViewController.m in Sources */,
+				F35E379716CC4C1900772AF9 /* Card.m in Sources */,
+				F35E379A16CC4C3D00772AF9 /* Deck.m in Sources */,
+				F35E379D16CC4F1B00772AF9 /* PlayingCard.m in Sources */,
+				F35E37A116CC54E200772AF9 /* PlayingCardDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
