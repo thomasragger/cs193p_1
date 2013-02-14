@@ -50,7 +50,10 @@
 }
 
 - (IBAction)dealCards:(UIButton *)sender {
-    
+    self.flipCount=0;
+    self.resultsLabel.text=@"";
+    [self.game reset];
+    [self updateUI];
 }
 
 - (IBAction)changeMode:(UISwitch *)sender {

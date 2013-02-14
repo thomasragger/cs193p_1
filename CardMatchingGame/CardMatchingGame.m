@@ -11,6 +11,8 @@
 @interface CardMatchingGame()
 @property(strong,nonatomic) NSMutableArray *cards;
 @property(nonatomic) int score;
+@property(nonatomic) Deck* deck;
+@property(nonatomic) NSUInteger cardCount;
 @end
 
 @implementation CardMatchingGame
@@ -24,14 +26,9 @@
     self = [super init];
     
     if(self){
-        for (int i=0; i<cardCount; i++) {
-            Card *card = [deck drawRandomCard];
-            if(!card){
-                self = nil;
-            }else{
-                self.cards[i] = card;
-            }
-        }
+        self.deck=deck;
+        self.cardCount=cardCount;
+        if(![self reset])self=nil;
     }
     
     return self;
@@ -41,28 +38,50 @@
     return (index < self.cards.count) ? self.cards[index] : nil;
 }
 
+- (BOOL)reset{
+    BOOL success=YES;
+    [self.deck reset];
+    self.score=0;
+    
+    for (int i=0; i<self.cardCount; i++) {
+        Card *card = [self.deck drawRandomCard];
+        if(!card){
+            success=NO;
+        }else{
+            self.cards[i] = card;
+        }
+    }
+    
+    return success;
+}
+
 #define MATCH_BONUS 4
 #define FLIP_COST 1
 #define MISMATCH_PENALTY 2
 
 -(NSString*)flipCardAtIndex:(NSUInteger)index{
     Card *card = [self cardAtIndex:index];
-    NSString *resultCopy=@"NEW GAME";
+    NSString *resultCopy=@"";
     
     if(!card.isUnplayable){
         if(!card.isFaceUp){
             for (Card *otherCard in self.cards) {
                 if(otherCard.isFaceUp && !otherCard.isUnplayable){
                     int matchScore = [card match:@[otherCard]];
+                    int finalScore=matchScore*MATCH_BONUS;
                     if(matchScore){
                         otherCard.unPlayable=YES;
                         card.unPlayable=YES;
-                        self.score+=matchScore*MATCH_BONUS;
+                        self.score+=finalScore;
+                        resultCopy=[NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents, otherCard.contents, finalScore];
                     }else{
                         otherCard.faceUp=NO;
                         self.score-=MISMATCH_PENALTY;
+                        resultCopy=[NSString stringWithFormat:@"%@ & %@ don't match! Penalty: %d!",card.contents, otherCard.contents, MISMATCH_PENALTY];
                     }
                     break;
+                }else{
+                    resultCopy=[NSString stringWithFormat:@"Flipped up %@!",card.contents];
                 }
             }
             self.score-=FLIP_COST;
