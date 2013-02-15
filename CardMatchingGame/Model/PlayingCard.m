@@ -12,14 +12,20 @@
 
 - (int)match:(NSArray *)otherCards{
     int score=0;
-    if(otherCards.count==1){
-        PlayingCard *otherCard = [otherCards lastObject];
+    BOOL mismatch=NO;
+    
+    for (PlayingCard* otherCard in otherCards) {
         if([otherCard.suit isEqualToString:self.suit]){
-            score=1;
+            score+=1;
         }else if(otherCard.rank==self.rank){
-            score=4;
+            score+=4;
+        }else{
+            mismatch=YES;
         }
     }
+    
+    if(mismatch)score=0;
+    
     return score;
 }
 

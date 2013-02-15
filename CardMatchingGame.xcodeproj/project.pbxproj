@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F314A8C016CEEFC700C75A87 /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = F314A8BF16CEEFC700C75A87 /* cardback.png */; };
 		F35E376F16CC470500772AF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35E376E16CC470500772AF9 /* UIKit.framework */; };
 		F35E377116CC470500772AF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35E377016CC470500772AF9 /* Foundation.framework */; };
 		F35E377316CC470500772AF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35E377216CC470500772AF9 /* CoreGraphics.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F314A8BF16CEEFC700C75A87 /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
 		F35E376B16CC470500772AF9 /* CardMatchingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardMatchingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35E376E16CC470500772AF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F35E377016CC470500772AF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 		F35E377516CC470500772AF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F314A8BF16CEEFC700C75A87 /* cardback.png */,
 				F35E377616CC470500772AF9 /* CardMatchingGame-Info.plist */,
 				F35E377716CC470500772AF9 /* InfoPlist.strings */,
 				F35E377A16CC470500772AF9 /* main.m */,
@@ -209,6 +212,7 @@
 				F35E378516CC470500772AF9 /* Default-568h@2x.png in Resources */,
 				F35E378816CC470500772AF9 /* MainStoryboard_iPhone.storyboard in Resources */,
 				F35E378B16CC470500772AF9 /* MainStoryboard_iPad.storyboard in Resources */,
+				F314A8C016CEEFC700C75A87 /* cardback.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
