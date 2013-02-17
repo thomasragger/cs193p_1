@@ -7,20 +7,8 @@
 //
 
 #import "Deck.h"
+#import "Game.h"
 #import <Foundation/Foundation.h>
 
-@interface CardMatchingGame : NSObject
-
-extern const int RESULT_MATCH;
-extern const int RESULT_MISMATCH;
-extern const int RESULT_FLIP;
-
--(id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck*)deck;
--(NSString*)flipCardAtIndex:(NSUInteger)index;
--(Card *)cardAtIndex:(NSUInteger)index;
--(BOOL)reset;
-
-@property(nonatomic,readonly) int score;
-@property(nonatomic) NSUInteger minMatchCount;
-
+@interface CardMatchingGame : Game
 @end

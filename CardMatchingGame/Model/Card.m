@@ -22,4 +22,9 @@
     return score;
 }
 
+-(NSString*)flipCardAtIndex:(NSUInteger)index{
+    //abstract class
+    return nil;
+}
+
 @end

@@ -9,64 +9,22 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame()
-@property(strong,nonatomic) NSMutableArray *cards;
-@property(nonatomic) int score;
-@property(nonatomic) Deck* deck;
-@property(nonatomic) NSUInteger cardCount;
+    @property(strong,nonatomic) NSMutableArray *cards;
+    @property(nonatomic) NSUInteger minMatchCount;
+    @property(nonatomic) int score;
 @end
 
 @implementation CardMatchingGame
 
-const int MATCH     = 0;
-const int MISMATCH  = 1;
-const int FLIP      = 2;
+#define MATCH_BONUS 4
+#define FLIP_COST 1
+#define MISMATCH_PENALTY 2
 
 - (NSMutableArray*) cards{
     if(!_cards)_cards=[[NSMutableArray alloc]init];
     return _cards;
 }
 
-- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck{
-    self = [super init];
-    
-    if(self){
-        self.deck=deck;
-        self.cardCount=cardCount;
-        if(![self reset])self=nil;
-    }
-    
-    return self;
-}
-
-- (Card *)cardAtIndex:(NSUInteger)index{
-    return (index < self.cards.count) ? self.cards[index] : nil;
-}
-
-- (NSUInteger)minMatchCount{
-    if(!_minMatchCount)_minMatchCount=2;
-    return _minMatchCount;
-}
-
-- (BOOL)reset{
-    BOOL success=YES;
-    [self.deck reset];
-    self.score=0;
-    
-    for (int i=0; i<self.cardCount; i++) {
-        Card *card = [self.deck drawRandomCard];
-        if(!card){
-            success=NO;
-        }else{
-            self.cards[i] = card;
-        }
-    }
-    
-    return success;
-}
-
-#define MATCH_BONUS 4
-#define FLIP_COST 1
-#define MISMATCH_PENALTY 2
 
 -(NSString*)flipCardAtIndex:(NSUInteger)index{
     Card *card = [self cardAtIndex:index];
