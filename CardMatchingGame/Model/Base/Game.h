@@ -11,7 +11,7 @@
 #import "Deck.h"
 
 @interface Game : NSObject
--(id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck*)deck;
+-(id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck*)deck withMinimumMatchCount:(NSUInteger)count;
 -(NSString*)flipCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
 -(BOOL)reset;

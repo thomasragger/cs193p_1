@@ -25,15 +25,13 @@
 }
 
 -(CardMatchingGame *)game{
-    if(!_game)_game=[[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
+    if(!_game)_game=[[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init] withMinimumMatchCount:2];
     return _game;
 }
 
 - (void)updateUI{
-    NSLog(@"UPDATE UI");
     for (UIButton *cardButton in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
-        
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected | UIControlStateDisabled];
         cardButton.enabled=!card.isUnplayable;

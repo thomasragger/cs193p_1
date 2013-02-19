@@ -15,15 +15,14 @@
 @property(nonatomic) int score;
 @end
 
-
 @implementation Game
 
-- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck{
-    self = [super init];
-    
+- (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck withMinimumMatchCount:(NSUInteger)count{
+    self = [super init];    
     if(self){
         self.deck=deck;
         self.cardCount=cardCount;
+        self.minMatchCount=count;
         if(![self reset])self=nil;
     }
     
@@ -44,7 +43,6 @@
     BOOL success=YES;
     [self.deck reset];
     self.score=0;
-    
     for (int i=0; i<self.cardCount; i++) {
         Card *card = [self.deck drawRandomCard];
         if(!card){
@@ -55,11 +53,6 @@
     }
     
     return success;
-}
-
-- (NSUInteger)minMatchCount{
-    if(!_minMatchCount)_minMatchCount=2;
-    return _minMatchCount;
 }
 
 -(NSString*)flipCardAtIndex:(NSUInteger)index{
